@@ -1,0 +1,24 @@
+﻿@using BS2WebApp.Models;
+@model TeacherModel
+
+@{
+    ViewBag.Title = "Lehrer bearbeiten";
+}
+
+<h2>Lehrer bearbeiten</h2>
+
+@using (Html.BeginForm("EditTeacherModel", "Teacher", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Age)
+        @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn">Speichern</button>
+}
+
+

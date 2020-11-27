@@ -1,0 +1,42 @@
+﻿@using BS2WebApp.Models;
+@model IEnumerable<StudentModel>
+
+@{
+    ViewBag.Title = "Schüler";
+}
+
+<h2>Schüler</h2>
+
+<hr />
+    <a class="btn btn-secondary" href="@Url.Action("EditStudent", "BS2", new { id = 0})">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Hinzufügen</a>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentModel tmpModel in Model)
+        {
+        <tr>
+            <td>@tmpModel.Id</td>
+            <td>@tmpModel.Name</td>
+            <td>
+            <a class="btn btn-secondary" href="@Url.Action("EditStudent", "BS2",new { id = tmpModel.Id } )">Bearbeiten</a>
+            </td>
+            <td>
+             <a class="btn btn-secondary" href="@Url.Action("DeleteStudent", "BS2",new { id = tmpModel.Id } )">Löschen</a>
+            </td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
