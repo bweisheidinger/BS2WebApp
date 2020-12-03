@@ -23,7 +23,8 @@ namespace BS2WebApp.Controllers
                 return View(studentModels);
             }
         }
-
+        //todo --> need to be fixed
+        /*
         public ActionResult EditStudent(StudentModel model)
         {
             if (model.Id == 0)
@@ -46,6 +47,7 @@ namespace BS2WebApp.Controllers
 
             return RedirectToAction("Student");
         }
+        */
 
         [HttpPost]
         [ValidateAntiForgeryToken]

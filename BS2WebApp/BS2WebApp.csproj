@@ -310,10 +310,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\BS2DB\Students.cshtml" />
+    <Content Include="Views\BS2DB\EditStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BS2DB\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
