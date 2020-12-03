@@ -23,34 +23,32 @@ namespace BS2WebApp.Controllers
                 return View(studentModels);
             }
         }
-        //todo --> need to be fixed
-        /*
-        public ActionResult EditStudent(StudentModel model)
+ 
+        public ActionResult EditStudent(int Id)
         {
-            if (model.Id == 0)
+            if (Id == 0)
             {
                 return View(new StudentModel());
             }
 
             using (BS2DBDataContext dbCtx = new BS2DBDataContext())
             {
-                Student student = dbCtx.Students.Where(x => x.Id == model.Id).FirstOrDefault();
+                Student student = dbCtx.Students.Where(x => x.Id == Id).FirstOrDefault();
 
-                if (model.Id == null)
-                {
-                    Student student1 = new Student
+                if (student == null)
+                    return View(new StudentModel());
+                
+                    StudentModel student1 = new StudentModel
                     {
-                        Name = model.Name
+                        Id = student.Id,
+                        Name = student.Name
                     };
-                }
+                return View(student1);
             }
-
-            return RedirectToAction("Student");
         }
-        */
+        
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult EditStudent(StudentModel model)
         {
             try
@@ -69,15 +67,20 @@ namespace BS2WebApp.Controllers
 
                             return RedirectToAction("Students");
                         }
+
                         Student student = dbCtx.Students.Where(x => x.Id == model.Id).FirstOrDefault();
 
                         if (student == null)
                             RedirectToAction("Error", "Error");
 
+                        student.Name = model.Name;
+
                         dbCtx.SubmitChanges();
+
+                        return RedirectToAction("Students");
                     }
                 }
-                return RedirectToAction("Students");
+                return View(model);
             }
             catch
             {
