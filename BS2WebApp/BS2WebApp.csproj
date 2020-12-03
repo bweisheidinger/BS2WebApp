@@ -199,9 +199,9 @@
       <LastGenOutput>BS2DB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ORM\BS2DB.dbml.layout">
+    <None Include="ORM\BS2DB.dbml.layout">
       <DependentUpon>BS2DB.dbml</DependentUpon>
-    </Content>
+    </None>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
